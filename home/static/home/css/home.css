@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+}
+
+div.form.form-control{
+    margin: 15px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    -webkit-text-stroke-width: 3px;
+    -webkit-tap-highlight-color:aliceblue;
+}
+
+
+p{
+    -webkit-text-stroke-width: 1px;
+}
+

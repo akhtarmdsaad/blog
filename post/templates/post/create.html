@@ -1,0 +1,28 @@
+ {% extends 'post/base.html' %}
+ {% load static %}
+ {% block title %}
+ Create
+ {% endblock title %}
+
+ {% block css %}
+ <link rel="stylesheet" href={% static 'post/css/post_create.css' %}>
+ {% endblock css %}
+
+{% block body %}
+<div class="container">
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    </div>
+    <form action={% url 'createpost' %} method="post" enctype = "multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}

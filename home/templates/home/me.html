@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME</title>
+    <style>
+        div.container{
+            font-family: cursive;
+        }
+
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}    
+    <div class="container">
+        <div>You are logged in</div>
+            <blockquote class="details">
+                Username: {{user.username}}<br>
+                Email: {{user.email}}<br>
+                Last Login:{{user.last_login}}<br>
+                Date Joined:{{user.date_joined}}<br>
+            
+            
+            
+            
+            </blockquote>
+        {% else %}
+            You are not logged in
+        {% endif %}
+    </div>
+</body>
+</html>

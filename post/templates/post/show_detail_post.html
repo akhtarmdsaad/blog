@@ -1,0 +1,27 @@
+{% extends 'post/base.html' %} {% load static %} {% block title %}
+Post-{{post.title}} {% endblock title %} {% block css %}
+<link rel="stylesheet" href="{% static 'post/css/post_single.css' %}" />
+{% endblock css %} {% block body %}
+
+<div class="title"><h1>{{post.title}}</h1></div>
+<div class="author">{{post.user}}</div>
+<div class="desc">{{post.description}}</div>
+<div class="img">
+  {% if post.image %}
+  <a href="{{post.image.url}}" class="img">
+    <img src="{{post.image.url}}" alt="" srcset="" />
+  </a>
+  {% else %} Image is not present in this post {% endif %}
+</div>
+{% if showactions %}
+<div class="action">
+  <h3>Actions</h3>
+  <div class="edit">
+    <a href="{% url 'editpost' post.id %}">Edit</a>
+  </div>
+  <div class="delete">
+    <a href="{% url 'deletepost' post.id %}">Delete</a>
+  </div>
+</div>
+{% endif %}
+{% endblock body %}

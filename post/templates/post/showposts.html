@@ -1,0 +1,27 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block title %}View{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href={% static 'post/css/post.css' %}>
+{% endblock css %}
+{% block body %}
+    <div class="postpart">
+        {% for post in posts %}
+            <a href="{% url 'post_detail' post.id %}">
+            <div class="card">
+                <div class="title">{{post.title}}</div>
+                {% if post.image %}
+                    <img src={{post.image.url}} alt={{post.title}} srcset="">    
+                <br>
+                {% else %}
+                <div class="image_container"></div>
+                <br>
+                {% endif %}
+                <div class="desc">{{post.description|truncatechars:15}}</div><br>
+                <div class="author">{{post.user}}</div>
+            </div>
+            </a>
+
+        {% endfor %}
+    </div>
+{% endblock body %}

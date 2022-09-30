@@ -1,0 +1,12 @@
+<div class="container sidebar">
+    <h3>Sidebar</h3>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'mypost' %}">Go To Post</a></li>
+        <li><a href={% url 'createpost' %}>Create Post</a></li>
+        <li><a href={% url 'me' %}>Tell about me</a></li>
+        {% if not request.user.is_authenticated %}<li><a href={% url 'login' %}>Login</a></li>{% endif %}
+        {% if request.user.is_authenticated %}<li><a href={% url 'logout' %}>Log out</a></li>{% endif %}
+    </ul>
+
+</div>
